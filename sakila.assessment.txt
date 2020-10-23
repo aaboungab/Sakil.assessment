@@ -97,7 +97,12 @@ WHERE title='Academy Dinosaur';
 
 SELECT AVG(length) FROM film;
 
-15)	List the average runtime for every film category.
+15)	List the average runtime for every film category?
+
+SELECT category.name, AVG(film.length) FROM category
+INNER JOIN film_category ON category.category_id=film_category.category_id
+INNER JOIN film ON film.film_id = film_category.film_id
+GROUP BY category.category_id;
 
 16)	List all movies featuring a robot?
 
@@ -109,16 +114,19 @@ WHERE release_year=2010;
 
 18)	Find the titles of all the horror movies?
 
-
+SELECT film.title FROM film
+INNER JOIN film_category ON film.film_id=film_category.film_id
+INNER JOIN category ON category.category_id = film_category.category_id
+WHERE category.name ='Horror';
 
 
 19)	List the full name of the staff member with the ID of 2?
 
 SELECT staff_id,first_name,last_name FROM staff WHERE staff_id =2;
 
-20)	List all the movies that Fred Costner has appeared in.
+20)	List all the movies that Fred Costner has appeared in?
 21)	How many distinct countries are there?
-22)	List the name of every language in reverse-alphabetical order.
-23)	List the full names of every actor whose surname ends with '-son' in alphabetical order by their forename.
+22)	List the name of every language in reverse-alphabetical order?
+23)	List the full names of every actor whose surname ends with '-son' in alphabetical order by their forename?
 24)	Which category contains the most films?
 	
