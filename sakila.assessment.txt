@@ -140,7 +140,7 @@ order by name DESC;
 
 23)	List the full names of every actor whose surname ends with '-son' in alphabetical order by their forename?
 
-SELECT first_name,last_name 
+SELECT name 
 from actor 
 WHERE last_name like '%son' 
 ORDER BY first_name ASC;
